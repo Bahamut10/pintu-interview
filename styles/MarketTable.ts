@@ -6,6 +6,9 @@ interface MarketTableProps {
   body?: boolean,
 }
 
+export const Thead = styled.thead``;
+export const TBody = styled.tbody``;
+
 export const Table = styled.table`
   ${tw`table-auto border-separate border-spacing[0] border border-radius[8px]`}
   ${tw`w-full`}
@@ -28,12 +31,29 @@ export const Tr = styled.tr<MarketTableProps>`
   }
 `;
 
-
-
 export const Th = styled.th`
   ${tw`p-4 border-b border-gray-200`}
 `;
 
-export const Thead = styled.thead``;
+export const Select = styled.select`
+  ${tw`shadow border rounded py-2 px-3 ml-auto text-gray-700`}
+`;
 
-export const TBody = styled.tbody``;
+export const List = styled.div`
+  ${tw`border`}
+`;
+
+export const ListHead = styled.div`
+  ${tw`flex items-center border-b p-4`}
+`;
+
+export const ListTitle = styled.h5`
+  ${tw`font-bold font-size[1rem]`}
+`;
+
+export const ListBody = styled.ul``
+
+export const ListItem = styled.div`
+  ${tw`p-4 border-b border-gray-200`}
+  ${tw`flex items-center justify-between`}
+`;

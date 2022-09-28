@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import type { NextPage } from "next";
-import MarketTable from "../components/MarketTable";
 import { Container, Heading, Input, Title } from "../styles/Home";
+import MarketTable from "../components/MarketTable";
 
 const Home: NextPage = () => {
   const [asset, setAsset] = useState('');
