@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { CryptoPrice } from "../../interfaces/price";
 
 const useCryptoItem = (price: string) => {
   const [prevPrice, setPrevPrice] = useState(Number.NEGATIVE_INFINITY);

@@ -12,7 +12,7 @@ export const TopMoverWrapper = styled.div`
 
 export const Title = styled.h3`
   ${tw`font-size[1rem] lg:font-size[1.2rem] text-gray-500`}
-  ${tw`mb-4 mx-5 lg:m-0 lg:mb-10`}
+  ${tw`mb-4 mx-5 lg:m-0 lg:mb-5`}
 `;
 
 export const TopCoinWrapper = styled.div``;

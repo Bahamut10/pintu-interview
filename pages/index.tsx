@@ -1,12 +1,14 @@
 import { ChangeEvent, useState } from "react";
 import type { NextPage } from "next";
-import { Container, Heading, Input, Title } from "../styles/Home";
-import MarketTable from "../components/MarketTable";
+
+import { Container, Heading, Title } from "../styles/Home";
+import MarketTableDesktop from "../components/MarketTable/Desktop";
+import MarketTableMobile from "../components/MarketTable/Mobile";
+import useMobileHook from "../customHooks/useMobileHook";
+import Input from "../components/common/Input";
 
 const Home: NextPage = () => {
-  const [asset, setAsset] = useState('');
-
-  const handleInput = (e: ChangeEvent<HTMLInputElement>) => setAsset(e.target.value);
+  const isMobile = useMobileHook();
 
   return (
     <Container>
@@ -14,9 +16,15 @@ const Home: NextPage = () => {
         <Title>
           Harga Crypto Hari Ini (Rupiah)
         </Title>
-        <Input placeholder="Cari aset di Pintu" onChange={handleInput} />
+        <Input />
       </Heading>
-      <MarketTable asset={asset} />
+      {
+        !isMobile ? (
+          <MarketTableDesktop />
+        ) : (
+          <MarketTableMobile />
+        )
+      }
     </Container>
   );
 };

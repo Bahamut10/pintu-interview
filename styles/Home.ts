@@ -10,12 +10,6 @@ export const Title = styled.h1`
   ${tw`lg:flex-1`}
 `;
 
-export const Input = styled.input`
-  ${tw`shadow appearance-none border rounded text-gray-700 focus:outline-none focus:shadow-inner`}
-  ${tw`py-2 px-3 mt-5 lg:w-2/6 lg:mt-0 lg:ml-auto`}
-  ${tw`w-full`}
-`;
-
 export const Heading = styled.div`
   ${tw`lg:flex items-center`}
   ${tw`mb-4 mx-5 lg:m-0 lg:mb-10`}

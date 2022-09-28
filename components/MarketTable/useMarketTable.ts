@@ -35,7 +35,7 @@ const useMarketTable = (asset: string) => {
 
   const handleTyping = () => {
     if (asset !== '') {
-      setData(coinData?.payload?.filter((val) => val.name.toLowerCase().includes(asset!)))
+      setData(coinData?.payload?.filter((val) => val.name.toLowerCase().includes(asset!) || val.currencySymbol.toLowerCase().includes(asset!)))
     } else {
       setData(coinData?.payload);
     }

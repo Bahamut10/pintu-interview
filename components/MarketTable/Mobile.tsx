@@ -1,18 +1,15 @@
 import { ChangeEvent, useState } from "react";
-import { delisted } from "../../helpers/delisted";
+import { useMarketContext } from "../../contexts/MarketContext";
 import { Title } from "../../styles/Home";
 import { List, ListBody, ListHead, ListTitle, Select } from "../../styles/MarketTable";
 import { TopMoverWrapper, Title as TopMoverTitle } from "../../styles/TopMover";
-import CryptoItem from "../CryptoItem";
+import CryptoItem from "../CryptoItem/Mobile";
+
 import TopMover from "../TopMover";
 import useMarketTable from "./useMarketTable";
 
-interface MarketTableProps {
-  asset?: string;
-}
-
-const MarketTableMobile = (props: MarketTableProps) => {
-  const { asset } = props;
+const MarketTableMobile = () => {
+  const { asset } = useMarketContext();
   const { data, isLoading, isCoinDelisted, getPrice, getTopMover } = useMarketTable(asset!);
 
   const [option, setOption] = useState('day');

@@ -21,7 +21,7 @@ const TopMover = (props: TopMoverProps) => {
         </CoinNameWrapper>
       </CoinIdentity>
       <CoinPrice>Rp {formatCurrency(parseInt(coin.latestPrice))}</CoinPrice>
-      <CoinMovement price={parseFloat(coin.day!)}>{coin.day}</CoinMovement>
+      <CoinMovement price={parseFloat(coin.day!)}>{coin.day}%</CoinMovement>
     </TopCoinWrapper>
   );
 }
