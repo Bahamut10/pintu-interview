@@ -1,3 +1,4 @@
+import { useState } from "react";
 import useMobileHook from "../../customHooks/useMobileHook";
 import MarketTableDesktop from "./Desktop";
 import MarketTableMobile from "./Mobile";

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CryptoPrice } from "../../interfaces/price";
 
-const useCryptoItem = (price: CryptoPrice) => {
+const useCryptoItem = (price: string) => {
   const [prevPrice, setPrevPrice] = useState(Number.NEGATIVE_INFINITY);
   const [upDownStatus, setUpDownStatus] = useState('neutral');
   
@@ -19,8 +19,8 @@ const useCryptoItem = (price: CryptoPrice) => {
   }
 
   const compareCoinPrice = () => {
-    let up = prevPrice < parseInt(price?.latestPrice);
-    setPrevPrice(parseInt(price?.latestPrice))
+    let up = prevPrice < parseInt(price);
+    setPrevPrice(parseInt(price))
     setUpDownStatus(up ? 'up' : 'down')
     setTimeout(() => {
       setUpDownStatus('neutral')
@@ -29,7 +29,7 @@ const useCryptoItem = (price: CryptoPrice) => {
 
   useEffect(() => {
     compareCoinPrice();
-  }, [price?.latestPrice]);
+  }, [price]);
 
   return {
     upDownStatus,

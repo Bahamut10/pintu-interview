@@ -8,7 +8,7 @@ interface CoinPrice {
 }
 
 export const CoinName = styled.h6`
-  ${tw`font-bold text-transform[capitalize] font-size[1rem]`}
+  ${tw`font-medium text-transform[capitalize] font-size[1rem]`}
   ${tw`flex-1`}
   ${tw`margin-left[10px]`}
 `;
@@ -28,7 +28,8 @@ export const CoinSymbol = styled.h2`
 
 export const CoinPrice = styled.h6<CoinPrice>`
   ${tw`font-bold text-transform[capitalize] font-size[1rem]`}
-  ${tw`flex items-center position[relative]`}
+  ${tw`flex items-center`}
+  ${tw`position[relative]`}
 
   ${({ price, theme }) => price
     && css`

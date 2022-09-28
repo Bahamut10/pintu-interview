@@ -18,23 +18,17 @@ const useMarketTable = (asset: string) => {
     priceData?.payload?.filter((data) => data.pair.split('/')[0] === coin.currencySymbol.toLowerCase())[0]
   )
 
-  const getTopMover = () => {
+  const getTopMover = (): Array<CryptoCoin & CryptoPrice> => {
     let arr = priceData?.payload;
     arr = arr?.filter((data) => !delisted.includes(data.pair.split('/')[0]));
     arr?.sort((a, b) => Math.abs(parseFloat(b?.day)) - Math.abs(parseFloat(a?.day)))
 
-    const intersectionPriceData = arr?.slice(0, 5).filter((data) => (
-      coinData?.payload?.some((val) => (
-        val.currencySymbol.toLowerCase() === data.pair.split('/')[0]
-      )
-    )))
-
-    const result = intersectionPriceData?.map((data) => ({
-      priceData: data,
-      coinData: coinData?.payload.filter((val) => val.currencySymbol.toLowerCase() === data.pair.split('/')[0]),
+    const result = arr?.slice(0, 6).map((data) => ({
+      ...data,
+      ...coinData?.payload.filter((val) => val.currencySymbol.toLowerCase() === data.pair.split('/')[0])[0],
     }))
 
-    return result;
+    return result!;
   }
 
   const isCoinDelisted = (coin: CryptoCoin) => delisted.includes(coin.currencySymbol.toLowerCase());
@@ -53,7 +47,7 @@ const useMarketTable = (asset: string) => {
 
   useEffect(() => {
     setData(coinData?.payload);
-  }, [coinData, priceData])
+  }, [coinData])
 
   return {
     data,

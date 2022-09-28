@@ -15,7 +15,8 @@ export const Table = styled.table`
 `;
 
 export const Td = styled.td`
-  ${tw`p-4 border-b border-gray-200`}
+  ${tw`border-b border-gray-200`}
+  ${tw`p-4 `}
 `;
 
 export const Tr = styled.tr<MarketTableProps>`
@@ -32,11 +33,14 @@ export const Tr = styled.tr<MarketTableProps>`
 `;
 
 export const Th = styled.th`
-  ${tw`p-4 border-b border-gray-200`}
+  ${tw`border-b border-gray-200`}
+  ${tw`p-4`}
 `;
 
 export const Select = styled.select`
-  ${tw`shadow border rounded py-2 px-3 ml-auto text-gray-700`}
+  ${tw`shadow border rounded`}
+  ${tw`py-2 px-3 ml-auto`}
+  ${tw`text-gray-700`}
 `;
 
 export const List = styled.div`
@@ -44,7 +48,9 @@ export const List = styled.div`
 `;
 
 export const ListHead = styled.div`
-  ${tw`flex items-center border-b p-4`}
+  ${tw`flex items-center`}
+  ${tw`border-b`}
+  ${tw`p-4`}
 `;
 
 export const ListTitle = styled.h5`
@@ -54,6 +60,7 @@ export const ListTitle = styled.h5`
 export const ListBody = styled.ul``
 
 export const ListItem = styled.div`
-  ${tw`p-4 border-b border-gray-200`}
   ${tw`flex items-center justify-between`}
+  ${tw`border-b border-gray-200`}
+  ${tw`p-4`}
 `;

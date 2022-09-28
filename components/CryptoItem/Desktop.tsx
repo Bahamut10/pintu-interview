@@ -20,7 +20,7 @@ interface CryptoProps {
 
 const CryptoItem = (props: CryptoProps) => {
   const { coin, price } = props;
-  const { upDownStatus, formatCurrency } = useCryptoItem(price);
+  const { upDownStatus, formatCurrency } = useCryptoItem(price?.latestPrice);
 
   return (
     <Tr body>

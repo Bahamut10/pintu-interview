@@ -1,7 +1,8 @@
-import { delisted } from "../../helpers/delisted";
 import { Title } from "../../styles/Home";
-import { Select, Table, TBody, Th, Thead, Tr } from "../../styles/MarketTable";
+import { Table, TBody, Th, Thead, Tr } from "../../styles/MarketTable";
+import { TopMoverWrapper, Title as TopMoverTitle } from "../../styles/TopMover";
 import CryptoItem from "../CryptoItem";
+import TopMover from "../TopMover";
 import useMarketTable from "./useMarketTable";
 
 interface MarketTableProps {
@@ -15,27 +16,37 @@ const MarketTableDesktop = (props: MarketTableProps) => {
   if (isLoading) return <Title>Loading...</Title>;
 
   return (
-    <Table>
-      <Thead>
-        <Tr head>
-          <Th>CRYPTO</Th>
-          <Th className="hidden lg:table-cell">HARGA</Th>
-          <Th className="hidden lg:table-cell">24 JAM</Th>
-          <Th className="hidden lg:table-cell">1 MGG</Th>
-          <Th className="hidden lg:table-cell">1 BLN</Th>
-          <Th className="hidden lg:table-cell">1 THN</Th>
-        </Tr>
-      </Thead>
-      <TBody>
-        {data?.map((coin) => !isCoinDelisted(coin) && (
-          <CryptoItem
-            key={coin.currencyGroup}
-            coin={coin}
-            price={getPrice(coin)}
-          />
-        ))}
-      </TBody>
-    </Table>
+    <>
+      <TopMoverTitle>🔥 Top Movers (24 Jam)</TopMoverTitle>
+      <TopMoverWrapper>
+      {
+        getTopMover().map((coin) => (
+          <TopMover key={coin.currencySymbol} coin={coin} />
+        ))
+      }
+      </TopMoverWrapper>
+      <Table>
+        <Thead>
+          <Tr head>
+            <Th>CRYPTO</Th>
+            <Th className="hidden lg:table-cell">HARGA</Th>
+            <Th className="hidden lg:table-cell">24 JAM</Th>
+            <Th className="hidden lg:table-cell">1 MGG</Th>
+            <Th className="hidden lg:table-cell">1 BLN</Th>
+            <Th className="hidden lg:table-cell">1 THN</Th>
+          </Tr>
+        </Thead>
+        <TBody>
+          {data?.map((coin) => !isCoinDelisted(coin) && (
+            <CryptoItem
+              key={coin.currencyGroup}
+              coin={coin}
+              price={getPrice(coin)}
+            />
+          ))}
+        </TBody>
+      </Table>
+    </>
   );
 };
 
