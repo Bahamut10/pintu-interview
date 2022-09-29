@@ -31,18 +31,32 @@ export const CoinPrice = styled.h6<CoinPrice>`
   ${tw`flex items-center`}
   ${tw`position[relative]`}
 
-  ${({ price, theme }) => price
-    && css`
-      color: ${price > 0 ? theme.colors.lightGreen : theme.colors.tomatoRed };
-      &:before {
-        content: url(${price > 0 ? 'https://api.iconify.design/bxs/up-arrow.svg?color=%2319cb22' : 'https://api.iconify.design/bxs/down-arrow.svg?color=%23fe5b5a'});
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 20px;
-        left: -20px;
-      }
-    `}
+  &:before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
+    left: -20px;
+  }  
+
+  ${({ price, theme }) => {
+    if (price! > 0) {
+      return css`
+        color: ${theme.colors.lightGreen};
+        &:before {
+          content: url('https://api.iconify.design/bxs/up-arrow.svg?color=%2319cb22');
+        }
+      `
+    } else if (price! < 0) {
+      return css`
+        color: ${theme.colors.tomatoRed};
+        &:before {
+          content: url('https://api.iconify.design/bxs/down-arrow.svg?color=%23fe5b5a');
+        }
+      `
+    }
+  }}
+    
 `;
 
 export const CoinCurrency = styled(CoinPrice)`
