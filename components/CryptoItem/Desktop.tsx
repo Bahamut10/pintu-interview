@@ -1,7 +1,8 @@
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
-import { CryptoCoin } from "../../interfaces/crypto";
-import { CryptoPrice } from "../../interfaces/price";
+import { CryptoCoin } from '../../interfaces/crypto';
+import { CryptoPrice } from '../../interfaces/price';
 import {
   CoinCurrency,
   CoinIdentity,
@@ -9,13 +10,13 @@ import {
   CoinPrice,
   CoinSymbol,
   CoinNameWrapper,
-} from "../../styles/CryptoItem";
-import { Td, Tr } from "../../styles/MarketTable";
-import useCryptoItem from "./useCryptoItem";
+} from '../../styles/CryptoItem';
+import { Td, Tr } from '../../styles/MarketTable';
+import useCryptoItem from './useCryptoItem';
 
 interface CryptoProps {
-  coin: CryptoCoin;
-  price: CryptoPrice;
+  coin: CryptoCoin
+  price: CryptoPrice
 }
 
 const CryptoItem = (props: CryptoProps) => {
@@ -39,23 +40,23 @@ const CryptoItem = (props: CryptoProps) => {
         </CoinCurrency>
       </Td>
       <Td>
-        <CoinPrice price={parseFloat(price?.day!)}>
-          {price?.day || "0.00"}%
+        <CoinPrice price={parseFloat(price?.day ?? '0')}>
+          {price?.day ?? '0.00'}%
         </CoinPrice>
       </Td>
       <Td>
-        <CoinPrice price={parseFloat(price?.week!)}>
-          {price?.week || "0.00"}%
+        <CoinPrice price={parseFloat(price?.week ?? '0')}>
+          {price?.week ?? '0.00'}%
         </CoinPrice>
       </Td>
       <Td>
-        <CoinPrice price={parseFloat(price?.month!)}>
-          {price?.month || "0.00"}%
+        <CoinPrice price={parseFloat(price?.month ?? '0')}>
+          {price?.month ?? '0.00'}%
         </CoinPrice>
       </Td>
       <Td>
-        <CoinPrice price={parseFloat(price?.year!)}>
-          {price?.year || "0.00"}%
+        <CoinPrice price={parseFloat(price?.year ?? '0')}>
+          {price?.year ?? '0.00'}%
         </CoinPrice>
       </Td>
     </Tr>

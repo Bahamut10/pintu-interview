@@ -1,14 +1,15 @@
-import { useMarketContext } from "../../contexts/MarketContext";
-import { Title } from "../../styles/Home";
-import { Table, TBody, Th, Thead, Tr } from "../../styles/MarketTable";
-import { TopMoverWrapper, Title as TopMoverTitle } from "../../styles/TopMover";
-import CryptoItem from "../CryptoItem/Desktop";
-import TopMover from "../TopMover";
-import useMarketTable from "./useMarketTable";
+import React from 'react';
+
+import { Title } from '../../styles/Home';
+import { Table, TBody, Th, Thead, Tr } from '../../styles/MarketTable';
+import { TopMoverWrapper, Title as TopMoverTitle } from '../../styles/TopMover';
+import CryptoItem from '../CryptoItem/Desktop';
+import TopMover from '../TopMover';
+import useMarketTable from './useMarketTable';
 
 const MarketTableDesktop = () => {
-  const { asset } = useMarketContext();
-  const { data, isLoading, isCoinDelisted, getPrice, getTopMover } = useMarketTable(asset!);
+  const { data, isLoading, isCoinDelisted, getPrice, getTopMover } =
+    useMarketTable();
 
   if (isLoading) return <Title>Loading...</Title>;
 
@@ -16,11 +17,9 @@ const MarketTableDesktop = () => {
     <>
       <TopMoverTitle>🔥 Top Movers (24 Jam)</TopMoverTitle>
       <TopMoverWrapper>
-      {
-        getTopMover().map((coin) => (
+        {getTopMover().map((coin) => (
           <TopMover key={coin.currencySymbol} coin={coin} />
-        ))
-      }
+        ))}
       </TopMoverWrapper>
       <Table>
         <Thead>
@@ -34,13 +33,16 @@ const MarketTableDesktop = () => {
           </Tr>
         </Thead>
         <TBody>
-          {data?.map((coin) => !isCoinDelisted(coin) && (
-            <CryptoItem
-              key={coin.currencyGroup}
-              coin={coin}
-              price={getPrice(coin)}
-            />
-          ))}
+          {data?.map(
+            (coin) =>
+              !isCoinDelisted(coin) && (
+                <CryptoItem
+                  key={coin.currencyGroup}
+                  coin={coin}
+                  price={getPrice(coin)}
+                />
+              )
+          )}
         </TBody>
       </Table>
     </>

@@ -1,7 +1,7 @@
-import axios from "axios"
+import axios from 'axios'
 
 /** Default config for axios instance */
-let config = {
+const config = {
   baseURL: 'https://api.pintu.co.id/v2',
 }
 
@@ -10,11 +10,11 @@ const fetch = axios.create(config)
 
 /** Adding the response interceptors */
 fetch.interceptors.response.use(
-  response => {
+  (response) => {
     /** TODO: Add any response interceptors */
-    return response.data;
+    return response.data
   },
-  error => {
+  (error) => {
     /** TODO: Do something with response error */
     return Promise.reject(error)
   }

@@ -1,11 +1,20 @@
-import Image from "next/image";
-import { CryptoCoin } from "../../interfaces/crypto";
-import { CryptoPrice } from "../../interfaces/price";
-import { CoinIdentity, CoinNameWrapper, CoinName, CoinPrice, TopCoinWrapper, CoinMovement } from "../../styles/TopMover";
-import useCryptoItem from "../CryptoItem/useCryptoItem";
+import React from 'react';
+import Image from 'next/image';
+
+import { CryptoCoin } from '../../interfaces/crypto';
+import { CryptoPrice } from '../../interfaces/price';
+import {
+  CoinIdentity,
+  CoinNameWrapper,
+  CoinName,
+  CoinPrice,
+  TopCoinWrapper,
+  CoinMovement,
+} from '../../styles/TopMover';
+import useCryptoItem from '../CryptoItem/useCryptoItem';
 
 interface TopMoverProps {
-  coin: CryptoCoin & CryptoPrice;
+  coin: CryptoCoin & CryptoPrice
 }
 
 const TopMover = (props: TopMoverProps) => {
@@ -21,9 +30,9 @@ const TopMover = (props: TopMoverProps) => {
         </CoinNameWrapper>
       </CoinIdentity>
       <CoinPrice>Rp {formatCurrency(parseInt(coin.latestPrice))}</CoinPrice>
-      <CoinMovement price={parseFloat(coin.day!)}>{coin.day}%</CoinMovement>
+      <CoinMovement price={parseFloat(coin.day ?? '0.00')}>{coin.day}%</CoinMovement>
     </TopCoinWrapper>
   );
-}
+};
 
 export default TopMover;

@@ -1,7 +1,8 @@
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
-import { CryptoCoin } from "../../interfaces/crypto";
-import { CryptoPrice } from "../../interfaces/price";
+import { CryptoCoin } from '../../interfaces/crypto';
+import { CryptoPrice } from '../../interfaces/price';
 import {
   CoinCurrency,
   CoinIdentity,
@@ -10,14 +11,14 @@ import {
   CoinPriceWrapper,
   CoinSymbol,
   CoinNameWrapper,
-} from "../../styles/CryptoItem";
-import { ListItem } from "../../styles/MarketTable";
-import useCryptoItem from "./useCryptoItem";
+} from '../../styles/CryptoItem';
+import { ListItem } from '../../styles/MarketTable';
+import useCryptoItem from './useCryptoItem';
 
 interface CryptoProps {
-  coin: CryptoCoin;
-  price: CryptoPrice;
-  duration: string;
+  coin: CryptoCoin
+  price: CryptoPrice
+  duration: string
 }
 
 const CryptoItem = (props: CryptoProps) => {
@@ -37,8 +38,8 @@ const CryptoItem = (props: CryptoProps) => {
         <CoinCurrency upDownStatus={upDownStatus}>
           Rp {formatCurrency(parseInt(price?.latestPrice))}
         </CoinCurrency>
-        <CoinPrice price={parseFloat(price?.[duration as keyof typeof price]!)}>
-          {price?.[duration as keyof typeof price] || "0.00"}%
+        <CoinPrice price={parseFloat(price?.[duration as keyof typeof price] ?? '0.00')}>
+          {price?.[duration as keyof typeof price] ?? '0.00'}%
         </CoinPrice>
       </CoinPriceWrapper>
     </ListItem>

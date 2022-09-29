@@ -1,16 +1,13 @@
-import React, {
-  useState, createContext, useContext, ReactNode,
-} from 'react';
-import { node } from 'prop-types';
+import React, { useState, createContext, useContext, ReactNode } from 'react';
 
 interface Props {
-  children?: ReactNode;
+  children?: ReactNode
 }
 
 const initialState = {
   asset: '',
-  setAsset: (value: string) => {}
-}
+  setAsset: (value: string) => {},
+};
 
 const MarketContext = createContext(initialState);
 
