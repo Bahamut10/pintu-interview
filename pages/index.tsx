@@ -6,6 +6,7 @@ import MarketTableDesktop from '../components/MarketTable/Desktop';
 import MarketTableMobile from '../components/MarketTable/Mobile';
 import useMobileHook from '../customHooks/useMobileHook';
 import Input from '../components/common/Input';
+import TopMover from '../components/TopMover';
 
 const Home: NextPage = () => {
   const isMobile = useMobileHook();
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
         <Title>Harga Crypto Hari Ini (Rupiah)</Title>
         <Input />
       </Heading>
+      <TopMover />
       {!isMobile ? <MarketTableDesktop /> : <MarketTableMobile />}
     </Container>
   );

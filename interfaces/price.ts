@@ -1,7 +1,7 @@
 export interface PriceResponse {
   code: string
   message: string
-  payload: Payload[]
+  payload: CryptoPrice[]
 }
 
 export interface CryptoPrice {

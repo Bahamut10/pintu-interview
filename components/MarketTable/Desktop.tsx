@@ -2,25 +2,17 @@ import React from 'react';
 
 import { Title } from '../../styles/Home';
 import { Table, TBody, Th, Thead, Tr } from '../../styles/MarketTable';
-import { TopMoverWrapper, Title as TopMoverTitle } from '../../styles/TopMover';
 import CryptoItem from '../CryptoItem/Desktop';
-import TopMover from '../TopMover';
 import useMarketTable from './useMarketTable';
 
 const MarketTableDesktop = () => {
-  const { data, isLoading, isCoinDelisted, getPrice, getTopMover } =
+  const { data, isLoading, isCoinDelisted, getPrice } =
     useMarketTable();
 
   if (isLoading) return <Title>Loading...</Title>;
 
   return (
     <>
-      <TopMoverTitle>🔥 Top Movers (24 Jam)</TopMoverTitle>
-      <TopMoverWrapper>
-        {getTopMover().map((coin) => (
-          <TopMover key={coin.currencySymbol} coin={coin} />
-        ))}
-      </TopMoverWrapper>
       <Table>
         <Thead>
           <Tr head>
@@ -39,7 +31,7 @@ const MarketTableDesktop = () => {
                 <CryptoItem
                   key={coin.currencyGroup}
                   coin={coin}
-                  price={getPrice(coin)}
+                  price={getPrice(coin)!}
                 />
               )
           )}

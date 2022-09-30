@@ -27,7 +27,7 @@ const CryptoItem = (props: CryptoProps) => {
     <Tr body>
       <Td>
         <CoinIdentity>
-          <Image src={coin.logo} alt="Crypto Logo" width="40" height="40" />
+          <Image src={coin.logo ?? '/cryptocurrency.png'} alt="Crypto Logo" width="40" height="40" />
           <CoinNameWrapper>
             <CoinName>{coin.name}</CoinName>
             <CoinSymbol>{coin.currencySymbol}</CoinSymbol>

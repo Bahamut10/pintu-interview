@@ -8,14 +8,12 @@ import {
   ListTitle,
   Select,
 } from '../../styles/MarketTable';
-import { TopMoverWrapper, Title as TopMoverTitle } from '../../styles/TopMover';
 import CryptoItem from '../CryptoItem/Mobile';
 
-import TopMover from '../TopMover';
 import useMarketTable from './useMarketTable';
 
 const MarketTableMobile = () => {
-  const { data, isLoading, isCoinDelisted, getPrice, getTopMover } =
+  const { data, isLoading, isCoinDelisted, getPrice } =
     useMarketTable();
 
   const [option, setOption] = useState('day');
@@ -26,12 +24,6 @@ const MarketTableMobile = () => {
 
   return (
     <>
-      <TopMoverTitle>🔥 Top Movers (24 Jam)</TopMoverTitle>
-      <TopMoverWrapper>
-        {getTopMover().map((coin) => (
-          <TopMover key={coin.currencySymbol} coin={coin} />
-        ))}
-      </TopMoverWrapper>
       <List>
         <ListHead>
           <ListTitle>Crypto</ListTitle>
@@ -49,7 +41,7 @@ const MarketTableMobile = () => {
                 <CryptoItem
                   key={coin.currencyGroup}
                   coin={coin}
-                  price={getPrice(coin)}
+                  price={getPrice(coin)!}
                   duration={option}
                 />
               )

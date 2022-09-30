@@ -1,38 +1,22 @@
 import React from 'react';
-import Image from 'next/image';
+import { useMarketContext } from '../../contexts/MarketContext';
 
-import { CryptoCoin } from '../../interfaces/crypto';
-import { CryptoPrice } from '../../interfaces/price';
-import {
-  CoinIdentity,
-  CoinNameWrapper,
-  CoinName,
-  CoinPrice,
-  TopCoinWrapper,
-  CoinMovement,
-} from '../../styles/TopMover';
-import useCryptoItem from '../CryptoItem/useCryptoItem';
+import { TopMoverWrapper, Title as TopMoverTitle } from '../../styles/TopMover';
+import TopMoverTile from './TopMoverTile';
 
-interface TopMoverProps {
-  coin: CryptoCoin & CryptoPrice
-}
-
-const TopMover = (props: TopMoverProps) => {
-  const { coin } = props;
-  const { formatCurrency } = useCryptoItem(coin.latestPrice);
+const TopMover = () => {
+  const { topMover } = useMarketContext();
 
   return (
-    <TopCoinWrapper>
-      <CoinIdentity>
-        <Image src={coin.logo} alt="Crypto Logo" width="40" height="40" />
-        <CoinNameWrapper>
-          <CoinName>{coin.name}</CoinName>
-        </CoinNameWrapper>
-      </CoinIdentity>
-      <CoinPrice>Rp {formatCurrency(parseInt(coin.latestPrice))}</CoinPrice>
-      <CoinMovement price={parseFloat(coin.day ?? '0.00')}>{coin.day}%</CoinMovement>
-    </TopCoinWrapper>
-  );
-};
+    <>
+      <TopMoverTitle>🔥 Top Movers (24 Jam)</TopMoverTitle>
+      <TopMoverWrapper>
+        {topMover?.map((coin) => (
+          <TopMoverTile key={coin.currencySymbol} coin={coin} />
+        ))}
+      </TopMoverWrapper>
+    </>
+  )
+}
 
 export default TopMover;

@@ -1,8 +1,8 @@
-*.ts
-*.js
-*.json
-*.md
-.babelrc
-src/styles/**/*.ts
-src/styles/*.css
-src/themes/*.ts
+/*.js
+/*.json
+/*.md
+/.babelrc
+/*.ts
+/styles/**/*.ts
+/styles/*.css
+/themes/*.ts
