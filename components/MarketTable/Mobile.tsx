@@ -2,7 +2,6 @@ import React, { ChangeEvent, useState } from 'react';
 import { CryptoCoin } from '../../interfaces/crypto';
 import { CryptoPrice } from '../../interfaces/price';
 
-import { Title } from '../../styles/Home';
 import {
   List,
   ListBody,
@@ -20,9 +19,9 @@ interface Props {
 }
 
 const MarketTableMobile = (props: Props) => {
-  const { coin: data, price } = props;
-  const { isCoinDelisted, getPrice } =
-    useMarketTable(data, price);
+  const { coin, price } = props;
+  const { data, isCoinDelisted, getPrice } =
+    useMarketTable(coin, price);
 
   const [option, setOption] = useState('day');
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) =>
