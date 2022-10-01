@@ -1,4 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
+import { CryptoCoin } from '../../interfaces/crypto';
+import { CryptoPrice } from '../../interfaces/price';
 
 import { Title } from '../../styles/Home';
 import {
@@ -12,18 +14,22 @@ import CryptoItem from '../CryptoItem/Mobile';
 
 import useMarketTable from './useMarketTable';
 
-const MarketTableMobile = () => {
-  const { data, isLoading, isCoinDelisted, getPrice } =
-    useMarketTable();
+interface Props {
+  coin: CryptoCoin[]
+  price: CryptoPrice[]
+}
+
+const MarketTableMobile = (props: Props) => {
+  const { coin: data, price } = props;
+  const { isCoinDelisted, getPrice } =
+    useMarketTable(data, price);
 
   const [option, setOption] = useState('day');
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) =>
     setOption(e.target.value);
 
-  if (isLoading) return <Title>Loading...</Title>;
-
   return (
-    <>
+    <div className="block lg:hidden">
       <List>
         <ListHead>
           <ListTitle>Crypto</ListTitle>
@@ -48,7 +54,7 @@ const MarketTableMobile = () => {
           )}
         </ListBody>
       </List>
-    </>
+    </div>
   );
 };
 

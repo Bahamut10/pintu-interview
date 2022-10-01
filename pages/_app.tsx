@@ -12,14 +12,14 @@ const queryClient = new QueryClient();
 
 function MyApp ({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={themes}>
-      <MarketContextProvider>
+    <MarketContextProvider>
+      <ThemeProvider theme={themes}>
         <QueryClientProvider client={queryClient}>
           <Component {...pageProps} />
           <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
         </QueryClientProvider>
-      </MarketContextProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </MarketContextProvider>
   );
 }
 

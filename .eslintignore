@@ -6,3 +6,4 @@
 /styles/**/*.ts
 /styles/*.css
 /themes/*.ts
+/stories/**/*.tsx

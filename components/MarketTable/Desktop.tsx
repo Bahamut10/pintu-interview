@@ -1,18 +1,23 @@
 import React from 'react';
+import { CryptoCoin } from '../../interfaces/crypto';
+import { CryptoPrice } from '../../interfaces/price';
 
-import { Title } from '../../styles/Home';
 import { Table, TBody, Th, Thead, Tr } from '../../styles/MarketTable';
 import CryptoItem from '../CryptoItem/Desktop';
 import useMarketTable from './useMarketTable';
 
-const MarketTableDesktop = () => {
-  const { data, isLoading, isCoinDelisted, getPrice } =
-    useMarketTable();
+interface Props {
+  coin: CryptoCoin[]
+  price: CryptoPrice[]
+}
 
-  if (isLoading) return <Title>Loading...</Title>;
+const MarketTableDesktop = (props: Props) => {
+  const { coin, price } = props;
+  const { data, isCoinDelisted, getPrice } =
+    useMarketTable(coin, price);
 
   return (
-    <>
+    <div className="hidden lg:block">
       <Table>
         <Thead>
           <Tr head>
@@ -37,7 +42,7 @@ const MarketTableDesktop = () => {
           )}
         </TBody>
       </Table>
-    </>
+    </div>
   );
 };
 

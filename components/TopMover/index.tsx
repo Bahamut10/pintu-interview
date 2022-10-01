@@ -7,16 +7,18 @@ import TopMoverTile from './TopMoverTile';
 const TopMover = () => {
   const { topMover } = useMarketContext();
 
-  return (
-    <>
-      <TopMoverTitle>🔥 Top Movers (24 Jam)</TopMoverTitle>
-      <TopMoverWrapper>
-        {topMover?.map((coin) => (
-          <TopMoverTile key={coin.currencySymbol} coin={coin} />
-        ))}
-      </TopMoverWrapper>
-    </>
-  )
+  if (topMover.length > 0) {
+    return (
+      <>
+        <TopMoverTitle>🔥 Top Movers (24 Jam)</TopMoverTitle>
+        <TopMoverWrapper>
+          {topMover?.map((coin) => (
+            <TopMoverTile key={coin.currencySymbol} coin={coin} />
+          ))}
+        </TopMoverWrapper>
+      </>
+    )
+  } else return <></>
 }
 
 export default TopMover;
