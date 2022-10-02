@@ -1,5 +1,5 @@
 ## Overview
-This project is created to complete the technical assessment given as a part of the recruitment process for getting the Front Engineer role at Pintu.
+This project is created to complete the technical assessment given as a part of the recruitment process for getting the Front End Engineer role at Pintu.
 
 ## Description
 [Pintu](https://pintu.co.id) is one of the finest Crypto Exchange platforms in Indonesia. This project is the replica of their [crypto market](https://pintu.co.id/market) feature which displays a list of available cryptocurrencies to be traded on their platform as well as the search feature and top mover feature to find out the cryptocurrencies which have the most volatile movements (up/down).
