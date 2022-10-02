@@ -1,8 +1,8 @@
 ## Overview
-This project is created to complete the technical assessment given as the part of interview for getting the Front Engineer role at Pintu.
+This project is created to complete the technical assessment given as a part of the recruitment process for getting the Front Engineer role at Pintu.
 
 ## Description
-[Pintu](https://pintu.co.id) is one of the finest Crypto Exchanges in Indonesia. This project is the replica of their [crypto market](https://pintu.co.id/market) feature which displays a list of available crypto to trade on their platform as well as the search feature and top mover feature to know more about which crypto has the highest movement (up/down).
+[Pintu](https://pintu.co.id) is one of the finest Crypto Exchange platforms in Indonesia. This project is the replica of their [crypto market](https://pintu.co.id/market) feature which displays a list of available cryptocurrencies to be traded on their platform as well as the search feature and top mover feature to find out the cryptocurrencies which have the most volatile movements (up/down).
 
 ## Getting Started
 
@@ -30,7 +30,7 @@ This project uses :
  - [Tailwind CSS](https://tailwindcss.com/).
  - [React Query](https://www.npmjs.com/package/react-query) for a better data fetching experience
  
-And it's deployed to Vercel with the link can be accessed [here](https://pintu-interview.vercel.app/).
+And it's deployed to Vercel with the link which can be accessed [here](https://pintu-interview.vercel.app/).
 
 ## Storybook
 
@@ -50,13 +50,13 @@ This web app consists of several parts to support its functionality.
 
 #### 1. Market Table
 
-This is the main part of the web which displays the list of Crypto Currencies available to be traded in the platform. It displays the price movement along with the percentage within the last 24 hours, a week, a month and even a year. The movement is in real time (updated every second)
+This is the main part of the web which displays the list of cryptocurrencies available to be traded in the platform. It displays the price movement along with the percentage within the last 24 hours, a week, a month and even a year. The movement is in real time (updated every second)
 
 ![Market Table](https://i.ibb.co/WW0FqQD/image.png "Market Table")
 
 #### 2. Top Mover
 
-This is the part which shows us the most volatile Crypto Currencies in 24 hours.
+This is the part which shows us the most volatile cryptocurrencies in 24 hours.
 
 ![Top Mover](https://i.ibb.co/z6nHQ42/image.png "Top Mover")
 
@@ -65,5 +65,3 @@ This is the part which shows us the most volatile Crypto Currencies in 24 hours.
 Just like how it's named, this is an input form to make it easy for you to search for certain Currencies you are looking for. You can search it by typing down its name or its currencySymbol.
 
 ![Search](https://i.ibb.co/BgkqDgg/image.png "Search")
-
-
