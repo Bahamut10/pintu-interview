@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPageContext } from 'next';
+import { NextPageContext } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';

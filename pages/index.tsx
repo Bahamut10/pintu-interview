@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GetServerSideProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 
 import { Container, Heading, Title } from '../styles/Globals';
 import Input from '../components/common/Input';
