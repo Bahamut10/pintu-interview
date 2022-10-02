@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import { useMarketContext } from '../../contexts/MarketContext';
 import { CryptoCoin } from '../../interfaces/crypto';
 import { CryptoPrice } from '../../interfaces/price';
 import Crypto from '../../network/Crypto';
+import useTopMover from '../TopMover/useTopMover';
 
 import MarketTableDesktop from './Desktop';
 import MarketTableMobile from './Mobile';
-import useMarketTable from './useMarketTable';
 
 interface Props {
   coin: CryptoCoin[]
@@ -15,7 +16,8 @@ interface Props {
 
 const MarketTable = (props: Props) => {
   const { coin, price } = props;
-  const { getTopMover } = useMarketTable(coin, price);
+  const { getTopMover } = useTopMover();
+  const { setTopMover } = useMarketContext();
 
   const [priceData, setPriceData] = useState<CryptoPrice[]>(price);
 
@@ -23,7 +25,7 @@ const MarketTable = (props: Props) => {
     {
       refetchInterval: 1000,
       onSuccess: ({ payload }) => {
-        getTopMover(payload);
+        setTopMover(getTopMover(coin, payload));
         setPriceData(payload)
       }
     }
