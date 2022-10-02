@@ -4,7 +4,7 @@ import { PriceResponse } from '../interfaces/price';
 import { TagResponse } from '../interfaces/tags';
 import { fetch } from './Fetch';
 
-export class Crypto {
+class Crypto {
   static getCryptoList (): Promise<Response> {
     return fetch.get('/wallet/supportedCurrencies');
   }
@@ -21,3 +21,5 @@ export class Crypto {
     return axios.get(`https://content.pintu.co.id/market-tags?slug_eq=${tag}&language.name=ID`);
   }
 }
+
+export default Crypto;
