@@ -35,7 +35,7 @@ const Home: NextPage<Props> = (props: Props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+Home.getInitialProps = async () => {
   const { getTopMover } = useTopMover();
 
   const { payload: coin } = await Crypto.getCryptoList();
@@ -45,12 +45,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const topMover = getTopMover(coin, price);
 
   return {
-    props: {
-      coin,
-      price,
-      tags,
-      topMover,
-    }
+    coin,
+    price,
+    tags,
+    topMover,
   }
 }
 

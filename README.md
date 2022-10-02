@@ -60,7 +60,15 @@ This is the part which shows us the most volatile cryptocurrencies in 24 hours.
 
 ![Top Mover](https://i.ibb.co/z6nHQ42/image.png "Top Mover")
 
-#### 3. Search
+#### 3. Market Tags
+
+This is the part which can be used to "filter" cryptocurrencies based on certain category.
+
+![Market Tags](https://i.ibb.co/3Nv5s9N/image.png "Market Tags")
+
+![Market Tags](https://i.ibb.co/CnhMQhY/image.png "Market Tags")
+
+#### 4. Search
 
 Just like how it's named, this is an input form to make it easy for you to search for certain Currencies you are looking for. You can search it by typing down its name or its currencySymbol.
 

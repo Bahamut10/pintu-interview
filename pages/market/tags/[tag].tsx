@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, NextPageContext } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -36,7 +36,7 @@ const TagPage = (props: Props) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+TagPage.getInitialProps = async (context: NextPageContext) => {
   const { tag } = context.query;
   const { data: cryptoByTag } = await Crypto.getCryptoListByTag(tag as string)
   const { payload: cryptoList } = await Crypto.getCryptoList()
@@ -44,12 +44,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const cryptoIntersection = cryptoList?.filter((value) => cryptoByTag[0].currencies.some((val) => val.name === value.currencySymbol))
 
+  // res.setHeader(
+  //   'Cache-Control',
+  //   'public, s-maxage=10, stale-while-revalidate=59'
+  // )
+
   return {
-    props: {
-      coin: cryptoIntersection,
-      price,
-      coinDetail: cryptoByTag[0],
-    }
+    coin: cryptoIntersection,
+    price,
+    coinDetail: cryptoByTag[0],
   }
 }
 
