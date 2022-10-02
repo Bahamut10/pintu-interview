@@ -1,6 +1,6 @@
-import { useMarketContext } from '../../contexts/MarketContext';
 import { delisted } from '../../helpers/delisted';
 import { CryptoCoin } from '../../interfaces/crypto';
+import { CryptoPrice } from '../../interfaces/price';
 
 const useTopMover = () => {
   const getTopMover = (coin: CryptoCoin[], payload: CryptoPrice[]) => {
