@@ -27,7 +27,8 @@ const MarketTable = (props: Props) => {
       onSuccess: ({ payload }) => {
         setTopMover(getTopMover(coin, payload));
         setPriceData(payload)
-      }
+      },
+      onError: (e) => console.error(e)
     }
   );
 

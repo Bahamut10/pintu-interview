@@ -10,14 +10,14 @@ export interface CryptoTag {
   subtitle: string
   language: CryptoByTag
   url: null
-  publishedAt: Date
-  createdAt: Date
-  updatedAt: Date
+  published_at: Date
+  created_at: Date
+  updated_at: Date
   statusbar: Statusbar
   order: number
   slug: string
-  metaTitle: null | string
-  metaDescription: null | string
+  meta_title: null | string
+  meta_description: null | string
   icon: Icon
   image: Icon
   currencies: CryptoByTag[]
@@ -26,8 +26,8 @@ export interface CryptoTag {
 export interface CryptoByTag {
   id: number
   name: string
-  createdAt: Date
-  updatedAt: Date
+  created_at: Date
+  updated_at: Date
 }
 
 export interface Icon {
@@ -39,8 +39,8 @@ export interface Icon {
   mime: MIME
   size: number
   url: string
-  createdAt: Date
-  updatedAt: Date
+  created_at: Date
+  updated_at: Date
   alternativeText: string
   caption: string
   width: number

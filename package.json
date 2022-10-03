@@ -19,6 +19,7 @@
     "react-dom": "18.2.0",
     "react-query": "^3.39.2",
     "styled-components": "^5.3.5",
+    "sweetalert2": "^11.4.37",
     "twin.macro": "^2.8.2"
   },
   "devDependencies": {
