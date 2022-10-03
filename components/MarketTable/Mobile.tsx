@@ -46,7 +46,7 @@ const MarketTableMobile = (props: Props) => {
                 <CryptoItem
                   key={coin.currencyGroup}
                   coin={coin}
-                  price={getPrice(coin)!}
+                  price={getPrice(coin) ?? {}}
                   duration={option}
                 />
               )

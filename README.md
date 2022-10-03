@@ -72,4 +72,4 @@ This is the part which can be used to "filter" cryptocurrencies based on certain
 
 Just like how it's named, this is an input form to make it easy for you to search for certain Currencies you are looking for. You can search it by typing down its name or its currencySymbol.
 
-![Search](https://i.ibb.co/BgkqDgg/image.png "Search")
+![Search](https://i.ibb.co/x3f9Kq8/image.png "Search")
